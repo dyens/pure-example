@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pure-example"
+dynamic = ["version"]
+description = "This is pure python project."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE.txt"}
+keywords = []
+authors = [
+  { name = "Kapustin Aleksandr", email = "alkapustin@rockitsoft.ru" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = [
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "mypy",
+  "ruff",
+  "coverage",
+]
+
+[tool.coverage.run]
+source = [
+  "pure_example/",
+]
+omit = [
+  "pure_example/__main__.py",
+]
+
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "D101",
+  "D100",
+  "D104",
+  "ANN101",
+  "D211",
+  "D212",
+  "ISC001",
+]
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+"**/{tests,docs,tools}/*" = [
+  "D101",
+  "D102",
+  "S101",
+  "ANN001",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.mypy]
+show_column_numbers = true
+show_error_codes = true
+strict = true
