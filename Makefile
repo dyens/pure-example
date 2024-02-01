@@ -19,9 +19,6 @@ pip-sync:
 run:
 	python -m $(PROJECT_NAME)
 
-.PHONY: prod-run
-prod-run:
-	ENV_FOR_DYNACONF=production python -m $(PROJECT_NAME)
 
 .PHONY: docker-build
 docker-build:
