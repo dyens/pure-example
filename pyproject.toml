@@ -36,6 +36,8 @@ dev = [
   "coverage",
 ]
 
+[tool.setuptools_scm]
+
 [tool.coverage.run]
 source = [
   "pure_example/",
